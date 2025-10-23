@@ -26,7 +26,7 @@ export default defineConfig(({ mode }) => {
         outDir: 'dist',
         assetsDir: 'assets',
         sourcemap: false,
-        minify: 'terser',
+        minify: 'esbuild', // استخدام esbuild بدلاً من terser للسرعة
         rollupOptions: {
           output: {
             manualChunks: {
@@ -34,6 +34,8 @@ export default defineConfig(({ mode }) => {
             },
           },
         },
+        target: 'esnext',
+        cssMinify: true,
       },
     };
 });
